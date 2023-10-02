@@ -1,0 +1,1 @@
+insert into admin (adminname, adminpwd) values ("Dani", "Dani");

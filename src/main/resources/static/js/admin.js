@@ -8,10 +8,15 @@ const backtomain_button = document.getElementById("backtomain");
 const login_button = document.getElementById("login");
 const logout_button = document.getElementById("logout");
 
+const name_input = document.getElementById("adminname");
+const password_input = document.getElementById("adminpwd");
+
 window.onload = async function () {
     admintoken = "";
     loginform.style.display = "block";
     adminpage.style.display = "none";
+    name_input.value = "";
+    password_input.value = "";
 }
 
 backtomain_button.addEventListener('click',function ()
@@ -21,8 +26,8 @@ backtomain_button.addEventListener('click',function ()
 
 login_button.addEventListener('click',function ()
 {
-    aname_input = document.getElementById("adminname").value
-    apwd_input = document.getElementById("adminpwd").value
+    aname_input = name_input.value;
+    apwd_input = password_input.value;
 
     send_credentials(name=aname_input, password=aname_input)
 
@@ -49,6 +54,7 @@ async function send_credentials(name, password){
             if(admintoken !== ""){
                 loginform.style.display = "none";
                 adminpage.style.display = "block";
+                setTimeout(window.onload, 10000)
             }
             else{
                 loginform.style.display = "block";

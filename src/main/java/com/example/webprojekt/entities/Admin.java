@@ -9,8 +9,6 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "admin")
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     @NotNull
     private String adminname;
     @NotNull

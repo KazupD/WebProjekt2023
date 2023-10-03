@@ -1,1 +1,2 @@
-insert into admin (adminname, adminpwd) values ("Dani", "Dani");
+insert into admin (adminname, adminpwd) values ("username", "password");
+insert into admintoken (token) values ("secretkey");

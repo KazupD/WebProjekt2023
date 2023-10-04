@@ -13,8 +13,8 @@ const password_input = document.getElementById("adminpwd");
 
 window.onload = async function () {
     admintoken = "";
-    loginform.style.display = "block";
-    adminpage.style.display = "none";
+    loginform.classList.remove("hidden");
+    adminpage.classList.add("hidden");
     name_input.value = "";
     password_input.value = "";
 }
@@ -52,13 +52,15 @@ async function send_credentials(name, password){
         .then((response) => {
             admintoken = response;
             if(admintoken !== ""){
-                loginform.style.display = "none";
-                adminpage.style.display = "block";
-                setTimeout(window.onload, 10000)
+                //loginform.style.display = "none";
+                //adminpage.style.display = "block";
+                loginform.classList.add("hidden");
+                adminpage.classList.remove("hidden");
+                setTimeout(window.onload, 10000);
             }
             else{
-                loginform.style.display = "block";
-                adminpage.style.display = "none";
+                loginform.classList.remove("hidden");
+                adminpage.classList.add("hidden");
                 alert("Invalid admin credentials!")
             }
         })

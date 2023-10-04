@@ -28,11 +28,33 @@
             </ul>
         </nav>
         <main class="main">
-            <button id="filters">Filters</button>
+            <button id="filterbutton">Show Filters</button>
+            <section id="filterform" class="hidden">
+                <div class = "type_select">
+                    <input type="radio" id="ac" name="motor_type" value="AC">
+                    <label for="ac">AC:</label>
+                    <input type="radio" id="dc" name="motor_type" value="DC">
+                    <label for="dc">DC:</label>
+                </div>
+                <div class="power_select">
+                    <label for="power">Power</label>
+                    <select name="power" id="power">
+                        <option value="low">"0-100 [W]"</option>
+                        <option value="medium">100-1000 [W]</option>
+                        <option value="high">1000-5000 [W]</option>
+                        <option value="veryhigh">5000- [W]</option>
+                    </select>
+                </div>
+                <div class="price_select">
+                    <label for="minprice">Min price:</label>
+                    <input id="minprice" type="number"/><br>
+                    <label for="maxprice">Max price:</label>
+                    <input id="maxprice" type="number"/>
+                </div>
+                <button id="applyfilters">Apply</button>
+            </section>
         </main>
-        <aside class="aside">
 
-        </aside>
         <footer class="footer">
             <p>Copyright &copy; 2023</p>
         </footer>

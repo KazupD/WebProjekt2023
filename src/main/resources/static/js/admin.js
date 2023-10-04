@@ -1,6 +1,4 @@
 
-let admintoken = "";
-
 const loginform = document.getElementById("loginform");
 const adminpage = document.getElementById("adminpage");
 
@@ -12,9 +10,14 @@ const name_input = document.getElementById("adminname");
 const password_input = document.getElementById("adminpwd");
 
 window.onload = async function () {
-    admintoken = "";
-    loginform.classList.remove("hidden");
-    adminpage.classList.add("hidden");
+
+    if(sessionStorage.getItem("admintoken") !== ""){
+        loginform.classList.add("hidden");
+        adminpage.classList.remove("hidden");
+    } else {
+        loginform.classList.remove("hidden");
+        adminpage.classList.add("hidden");
+    }
     name_input.value = "";
     password_input.value = "";
 }
@@ -35,7 +38,7 @@ login_button.addEventListener('click',function ()
 
 logout_button.addEventListener('click',function ()
 {
-    alert("You are going back to the main page.")
+    sessionStorage.setItem("admintoken", "");
     location.assign('/');
 });
 
@@ -50,13 +53,10 @@ async function send_credentials(name, password){
         )
     }).then(response => response.text())
         .then((response) => {
-            admintoken = response;
-            if(admintoken !== ""){
-                //loginform.style.display = "none";
-                //adminpage.style.display = "block";
+            sessionStorage.setItem("admintoken", response);
+            if(sessionStorage.getItem("admintoken") !== ""){
                 loginform.classList.add("hidden");
                 adminpage.classList.remove("hidden");
-                setTimeout(window.onload, 10000);
             }
             else{
                 loginform.classList.remove("hidden");

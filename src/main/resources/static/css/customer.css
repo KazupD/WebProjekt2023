@@ -75,6 +75,25 @@ body{
     text-transform: uppercase;
 }
 
+.main {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+}
+
+.footer{
+    grid-column: 1 / 3;
+    grid-row: 4;
+    padding: 1%;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
 button {
     text-align: center;
     font-size: medium;

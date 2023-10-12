@@ -28,30 +28,37 @@
             </ul>
         </nav>
         <main class="main">
-            <button id="filterbutton">Show Filters</button>
-            <section id="filterform" class="hidden">
-                <div class = "type_select">
-                    <input type="radio" id="ac" name="motor_type" value="AC">
-                    <label for="ac">AC</label>
-                    <input type="radio" id="dc" name="motor_type" value="DC">
-                    <label for="dc">DC</label>
+            <button class="filter_button" id="filter_button">Show Filters</button>
+            <section id="filter_form" class="hidden">
+                <div class = "filter_card_container">
+                    <div class = "filter_content" id="type_select">
+                        <input type="radio" id="ac" name="motor_type" value="AC">
+                        <label for="ac">AC</label>
+                        <input type="radio" id="dc" name="motor_type" value="DC">
+                        <label for="dc">DC</label>
+                        <input type="radio" id="any" name="motor_type" value="Any" checked>
+                        <label for="any">Any</label>
+                    </div>
+                    <div class="filter_content" id="power_select">
+                        <label for="power">Power</label>
+                        <select name="power" id="power">
+                            <option value="all">All</option>
+                            <option value="low">"0-100 [W]"</option>
+                            <option value="medium">100-1000 [W]</option>
+                            <option value="high">1000-5000 [W]</option>
+                            <option value="veryhigh">5000- [W]</option>
+                        </select>
+                    </div>
+                    <div class="filter_content" id="price_select">
+                        <label>Price :  </label>
+                        <label for="minprice">MIN</label>
+                        <input class="number_input" id="minprice" type="number" value="0"/>
+                        <label for="maxprice">MAX</label>
+                        <input class="number_input" id="maxprice" type="number" value="1000"/>
+                    </div>
                 </div>
-                <div class="power_select">
-                    <label for="power">Power</label>
-                    <select name="power" id="power">
-                        <option value="low">"0-100 [W]"</option>
-                        <option value="medium">100-1000 [W]</option>
-                        <option value="high">1000-5000 [W]</option>
-                        <option value="veryhigh">5000- [W]</option>
-                    </select>
-                </div>
-                <div class="price_select">
-                    <label for="minprice">Min price:</label>
-                    <input id="minprice" type="number"/><br>
-                    <label for="maxprice">Max price:</label>
-                    <input id="maxprice" type="number"/>
-                </div>
-                <button id="applyfilters">Apply</button>
+                <button class="filter_button" id="remove_filters">Remove Filters</button>
+                <button class="filter_button" id="apply_filters">Apply Filters</button>
             </section>
             <section class="product_container" id="product_container">
 

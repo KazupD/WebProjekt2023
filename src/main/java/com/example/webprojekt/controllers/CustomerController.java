@@ -1,9 +1,19 @@
 package com.example.webprojekt.controllers;
 
+import com.example.webprojekt.entities.Admin;
+import com.example.webprojekt.entities.AdminToken;
+import com.example.webprojekt.entities.Product;
 import com.example.webprojekt.services.ShopManager;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static java.lang.Float.parseFloat;
 
 @Controller
 public class CustomerController {
@@ -42,5 +52,68 @@ public class CustomerController {
     public String showAbout() {
 
         return "about";
+    }
+
+    @PostMapping("/getallproducts")
+    @ResponseBody
+    public String showAllProducts(@RequestBody String req) throws JSONException {
+        Iterable<Product> query_result;
+
+        query_result = shopManager.getAllProducts();
+
+        JSONArray response = new JSONArray();
+
+        for(Product p : query_result){
+            JSONObject product_entity = new JSONObject();
+
+            product_entity.put("id", p.getId());
+            product_entity.put("name", p.getName());
+            product_entity.put("image_name", p.getImage_name());
+            product_entity.put("brand", p.getBrand());
+            product_entity.put("power", p.getPower());
+            product_entity.put("type", p.getType());
+            product_entity.put("price", p.getPrice());
+            response.put(product_entity);
+        }
+
+        return response.toString();
+    }
+
+    @PostMapping("/filter")
+    @ResponseBody
+    public String showFilteredProducts(@RequestBody String filter) throws JSONException {
+
+        JSONObject jsonobj = new JSONObject(filter);
+
+        String type = jsonobj.getString("type");
+        String min_power = jsonobj.getString("min_power");
+        String max_power = jsonobj.getString("max_power");
+        String min_price = jsonobj.getString("min_price");
+        String max_price = jsonobj.getString("max_price");
+
+        Iterable<Product> query_result;
+
+        if(type.equals("Any")){
+            query_result = shopManager.getProductsByPowerAndPrice(parseFloat(min_power), parseFloat(max_power), parseFloat(min_price), parseFloat(max_price));
+        } else {
+            query_result = shopManager.getProductsByAllFilters(type, parseFloat(min_power), parseFloat(max_power), parseFloat(min_price), parseFloat(max_price));
+        }
+
+        JSONArray response = new JSONArray();
+
+        for(Product p : query_result){
+            JSONObject product_entity = new JSONObject();
+
+            product_entity.put("id", p.getId());
+            product_entity.put("name", p.getName());
+            product_entity.put("image_name", p.getImage_name());
+            product_entity.put("brand", p.getBrand());
+            product_entity.put("power", p.getPower());
+            product_entity.put("type", p.getType());
+            product_entity.put("price", p.getPrice());
+            response.put(product_entity);
+        }
+
+        return response.toString();
     }
 }

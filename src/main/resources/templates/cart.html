@@ -28,7 +28,7 @@
         </ul>
     </nav>
     <main class="main">
-        <h4>My Cart</h4>
+        <h3>My Cart</h3>
         <h3 id="total_price">Total:</h3>
         <section class="cart_section" id="cart_section">
             <table class="cart_table" id="cart_table">
@@ -40,6 +40,32 @@
 
         <section class="hidden">
             <h3>Finish My Shopping</h3>
+            <p>Please enter your personal details</p>
+            <div>
+                <label for="first_name">First Name</label>
+                <input class="personal_data" id="first_name" type="text" value="Johnny"/><br>
+                <label for="last_name">Last Name</label>
+                <input class="personal_data" id="last_name" type="text" value="Bravo"/><br>
+                <label for="email">Email</label>
+                <input class="personal_data" id="email" type="text" value="jb@jbmail.com"/><br>
+                <label for="tel_num">Telephone</label>
+                <input class="personal_data" id="tel_num" type="number" value="0123456789" min="0"/>
+            </div>
+            <div>
+                <label for="shipping_city">Shipping Address (City)</label>
+                <input class="shipping_data" id="shipping_city" type="text" value="Budapest 1111."/><br>
+                <label for="shipping_street">Shipping Address (Street)</label>
+                <input class="shipping_data" id="shipping_street" type="text" value="Irinyi József utca"/><br>
+                <label for="shipping_building">Shipping Address (Building)</label>
+                <input class="shipping_data" id="shipping_building" type="text" value="1-17"/>
+            </div>
+            <div>
+                <p>I accept terms:</p>
+                <input type="radio" id="accept_radio" name="term_accepting" value="yes">
+                <label for="accept_radio">YES</label>
+                <input type="radio" id="decline_radio" name="term_accepting" value="no" checked>
+                <label for="decline_radio">NO</label>
+            </div>
             <button id = "submit_order">Submit Order</button>
         </section>
     </main>

@@ -22,25 +22,25 @@ window.onload = async function () {
     password_input.value = "";
 }
 
-backtomain_button.addEventListener('click',function ()
+backtomain_button.onclick = function ()
 {
     location.assign('/');
-});
+};
 
-login_button.addEventListener('click',function ()
+login_button.onclick = function ()
 {
     aname_input = name_input.value;
     apwd_input = password_input.value;
 
     send_credentials(name=aname_input, password=aname_input)
 
-});
+};
 
-logout_button.addEventListener('click',function ()
+logout_button.onclick = function ()
 {
     sessionStorage.setItem("admintoken", "");
     location.assign('/');
-});
+};
 
 async function send_credentials(name, password){
     await fetch('/entercredentials', {

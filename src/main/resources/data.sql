@@ -2,29 +2,29 @@ insert into admin (adminname, adminpwd) values ("username", "password");
 insert into admintoken (token) values ("secretkey");
 
 insert into product (id, name, image_name, brand, power, price, type)
-values (1, "StronK X1", "motor_img1", "ThunderTorque", 5000, 2099.99, "AC");
+values (1, "StronK X1", "motor_img1", "ThunderTorque", 5000, 2099, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (2, "StronK L1", "motor_img2", "ThunderTorque", 3000, 1299.99, "AC");
+values (2, "StronK L1", "motor_img2", "ThunderTorque", 3000, 1299, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (3, "StronK S1", "motor_img3", "ThunderTorque", 1500, 999.99, "AC");
+values (3, "StronK S1", "motor_img3", "ThunderTorque", 1500, 999, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (4, "AmperMaster A18", "motor_img4", "MegaWattMaster", 1800, 899.99, "AC");
+values (4, "AmperMaster A18", "motor_img4", "MegaWattMaster", 1800, 899, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (5, "AmperMaster A12", "motor_img5", "MegaWattMaster", 1200, 799.99, "AC");
+values (5, "AmperMaster A12", "motor_img5", "MegaWattMaster", 1200, 799, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (6, "AmperMaster A5", "motor_img6", "MegaWattMaster", 500, 399.99, "AC");
+values (6, "AmperMaster A5", "motor_img6", "MegaWattMaster", 500, 399, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (7, "Pulse P30", "motor_img7", "FluxForceMax", 3000, 1599.99, "AC");
+values (7, "Pulse P30", "motor_img7", "FluxForceMax", 3000, 1599, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (8, "Pulse P80", "motor_img8", "FluxForceMax", 8000, 2599.99, "AC");
+values (8, "Pulse P80", "motor_img8", "FluxForceMax", 8000, 2599, "AC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (9, "Electra S", "motor_img9", "VoltMach", 45, 59.99, "DC");
+values (9, "Electra S", "motor_img9", "VoltMach", 45, 59, "DC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (10, "Electra M", "motor_img10", "VoltMach", 100, 99.99, "DC");
+values (10, "Electra M", "motor_img10", "VoltMach", 100, 99, "DC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (11, "Electra L", "motor_img11", "VoltMach", 200, 149.99, "DC");
+values (11, "Electra L", "motor_img11", "VoltMach", 200, 149, "DC");
 insert into product (id, name, image_name, brand, power, price, type)
-values (12, "Electra XL", "motor_img11", "VoltMach", 500, 199.99, "DC");
+values (12, "Electra XL", "motor_img11", "VoltMach", 500, 199, "DC");
 
 
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)

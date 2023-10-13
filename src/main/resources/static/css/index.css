@@ -241,10 +241,11 @@ input {
     background-color: initial;
 }
 
-.product_image img {
+.product_image {
     display: block;
     margin: auto;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .product .product_name {
@@ -255,6 +256,7 @@ input {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .product_id {

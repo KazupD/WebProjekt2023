@@ -1,8 +1,6 @@
 package com.example.webprojekt.controllers;
 
-import com.example.webprojekt.entities.Customer;
-import com.example.webprojekt.entities.OrderEntity;
-import com.example.webprojekt.entities.Product;
+import com.example.webprojekt.entities.*;
 import com.example.webprojekt.services.ShopManager;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -116,6 +114,40 @@ public class CustomerController {
         return response.toString();
     }
 
+    @PostMapping("/getmotordetails")
+    @ResponseBody
+    public String getACDetails(@RequestBody String request) throws JSONException {
+
+        JSONObject jsonobj = new JSONObject(request);
+        String motor_type = jsonobj.getString("motor_type");
+        Long motor_id = jsonobj.getLong("motor_id");
+        JSONObject product_entity = new JSONObject();
+        if(motor_type.equals("AC")) {
+            ACmotor ac_motor = shopManager.findACmotorById(motor_id);
+
+            product_entity.put("cosine_phi", ac_motor.getCosine_phi());
+            product_entity.put("nominal_current", ac_motor.getNominal_current());
+            product_entity.put("nominal_rpm", ac_motor.getNominal_rpm());
+            product_entity.put("nominal_voltage", ac_motor.getNominal_voltage());
+            product_entity.put("slip", ac_motor.getSlip());
+            product_entity.put("phase_number", ac_motor.getPhase_number());
+            product_entity.put("pole_pairs", ac_motor.getPole_pairs());
+        }
+        if(motor_type.equals("DC")) {
+            DCmotor dc_motor = shopManager.findDCmotorById(motor_id);
+
+            product_entity.put("nominal_rpm", dc_motor.getNominal_rpm());
+            product_entity.put("nominal_voltage", dc_motor.getNominal_voltage());
+            product_entity.put("power_factor", dc_motor.getPower_factor());
+            product_entity.put("stall_current", dc_motor.getStall_current());
+            product_entity.put("stall_torque", dc_motor.getStall_torque());
+            product_entity.put("steady_state_current", dc_motor.getSteady_state_current());
+            product_entity.put("steady_state_torque", dc_motor.getSteady_state_torque());
+            product_entity.put("commutator_segments", dc_motor.getCommutator_segments());
+        }
+
+        return product_entity.toString();
+    }
 
     @PostMapping("/neworder")
     @ResponseBody

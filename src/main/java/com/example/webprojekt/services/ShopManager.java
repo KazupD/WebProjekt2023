@@ -88,4 +88,12 @@ public class ShopManager {
     public Product findProductById(Long id) {
         return productRepo.findProductById(id);
     }
+
+    public ACmotor findACmotorById(Long id){
+        return acmotorRepo.findACmotorById(id);
+    }
+
+    public DCmotor findDCmotorById(Long id){
+        return dcmotorRepo.findDCmotorById(id);
+    }
 }

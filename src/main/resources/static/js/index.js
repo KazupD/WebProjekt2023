@@ -180,3 +180,4 @@ async function get_filtered_products(){
 
         }).catch(err => console.log(err));
 }
+

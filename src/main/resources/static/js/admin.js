@@ -42,6 +42,8 @@ logout_button.onclick = function ()
     location.assign('/');
 };
 
+
+
 async function send_credentials(name, password){
     await fetch('/entercredentials', {
         method: 'POST',

@@ -52,3 +52,13 @@ insert into dcmotor (product_id, id, nominal_rpm, nominal_voltage, power_factor,
 values (11, 11, 2500, 24.0, 0.73, 20.0, 4.0, 18.0, 1.4, 24);
 insert into dcmotor (product_id, id, nominal_rpm, nominal_voltage, power_factor, stall_current, steady_state_current, stall_torque, steady_state_torque, commutator_segments)
 values (12, 12, 3000, 50.0, 0.68, 30.0, 5.0, 27.0, 3.0, 12);
+
+insert into customer (first_name, last_name, email, telephone, shipping_city, shipping_street, shipping_building)
+values ("Johnny", "Bravo", "jb@jbmail.com", "0123456789", "Budapest 1111", "Irinyi József utca", "1-17");
+insert into customer (first_name, last_name, email, telephone, shipping_city, shipping_street, shipping_building)
+values ("Scooby", "Doo", "sd@sdmail.com", "9876543210", "Budapest 1111", "Irinyi József utca", "1-17");
+
+insert into order_table (customer_id, product_id, quantity, total_price)
+values (1, 4, 8, 15200);
+insert into order_table (customer_id, product_id, quantity, total_price)
+values (2, 3, 5, 8560);

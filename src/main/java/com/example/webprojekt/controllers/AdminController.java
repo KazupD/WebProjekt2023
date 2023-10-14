@@ -47,4 +47,11 @@ public class AdminController {
             return "";
         }
     }
+
+    @PostMapping ("/markascompleted")
+    @ResponseBody
+    public String setOrderAsCompleted(@RequestBody String order_id) throws JSONException {
+        //shopManager.setOrderAsCompleted();
+        return "";
+    }
 }

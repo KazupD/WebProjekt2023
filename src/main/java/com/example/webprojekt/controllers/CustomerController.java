@@ -1,17 +1,16 @@
 package com.example.webprojekt.controllers;
 
-import com.example.webprojekt.entities.Admin;
-import com.example.webprojekt.entities.AdminToken;
+import com.example.webprojekt.entities.Customer;
+import com.example.webprojekt.entities.OrderEntity;
 import com.example.webprojekt.entities.Product;
 import com.example.webprojekt.services.ShopManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Order;
+import org.springframework.jdbc.support.CustomSQLErrorCodesTranslation;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static java.lang.Float.parseFloat;
 
@@ -115,5 +114,58 @@ public class CustomerController {
         }
 
         return response.toString();
+    }
+
+
+    @PostMapping("/neworder")
+    @ResponseBody
+    public String addNewOrder(@RequestBody String order_params) throws JSONException {
+
+        JSONObject jsonobj = new JSONObject(order_params);
+
+        String first_name = jsonobj.getString("first_name");
+        String last_name = jsonobj.getString("last_name");
+        String email = jsonobj.getString("email");
+        String tel_num = jsonobj.getString("tel_num");
+        String shipping_city = jsonobj.getString("shipping_city");
+        String shipping_street = jsonobj.getString("shipping_street");
+        String shipping_building = jsonobj.getString("shipping_building");
+        JSONArray order_list = jsonobj.getJSONArray("order_list");
+
+        Long customer_id = shopManager.getCustomerIdByPersonalData(first_name, last_name, email, tel_num, shipping_city, shipping_street, shipping_building);
+        System.out.println(customer_id);
+
+
+        if(customer_id == null){
+            System.out.println("Inserting new customer");
+            Customer c = new Customer(first_name, last_name, email, tel_num, shipping_city, shipping_street, shipping_building);
+            shopManager.saveCustomer(c);
+            System.out.println("New customer inserted");
+        }
+
+        customer_id = shopManager.getCustomerIdByPersonalData(first_name, last_name, email, tel_num, shipping_city, shipping_street, shipping_building);
+        System.out.println(customer_id);
+
+        if(customer_id == null){
+            System.out.println("Customer still not exist after insertion");
+            return "ERROR";
+        }
+
+        for(int i = 0; i < order_list.length(); i++)
+        {
+            JSONObject order_row = order_list.getJSONObject(i);
+            Long id = order_row.getLong("id");
+            Long quantity = order_row.getLong("quantity");
+            Float price_sum = shopManager.getPriceById(id)*quantity;
+
+            Product p = shopManager.findProductById(id);
+            Customer c = shopManager.findCustomerById(customer_id);
+
+            OrderEntity oe = new OrderEntity(quantity, price_sum, c, p);
+
+            shopManager.saveOrder(oe);
+        }
+
+        return "OK";
     }
 }

@@ -1,8 +1,6 @@
 package com.example.webprojekt.services;
 
-import com.example.webprojekt.entities.Admin;
-import com.example.webprojekt.entities.AdminToken;
-import com.example.webprojekt.entities.Product;
+import com.example.webprojekt.entities.*;
 import com.example.webprojekt.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +13,19 @@ public class ShopManager {
     private final ACmotorRepository acmotorRepo;
     private final DCmotorRepository dcmotorRepo;
 
+    private final OrderEntityRepository orderRepo;
+
+    private final CustomerRepository customerRepo;
+
     @Autowired
-    public ShopManager(AdminRepository adminRepo, AdminTokenRepository adminTokenRepo, ProductRepository productRepo, ACmotorRepository acmotorRepo, DCmotorRepository dcmotorRepo) {
+    public ShopManager(AdminRepository adminRepo, AdminTokenRepository adminTokenRepo, ProductRepository productRepo, ACmotorRepository acmotorRepo, DCmotorRepository dcmotorRepo, OrderEntityRepository orderRepo, CustomerRepository customerRepo) {
         this.adminRepo = adminRepo;
         this.adminTokenRepo = adminTokenRepo;
         this.productRepo = productRepo;
         this.acmotorRepo = acmotorRepo;
         this.dcmotorRepo = dcmotorRepo;
+        this.orderRepo = orderRepo;
+        this.customerRepo = customerRepo;
     }
 
     public Iterable<Admin> getAllAdmins(){
@@ -58,4 +62,30 @@ public class ShopManager {
         return productRepo.findByPowerAndPrice(power_low, power_high, price_low, price_high);
     }
 
+    public Long getCustomerIdByPersonalData(String first_name, String last_name, String email, String tel_num, String shipping_city, String shipping_street, String shipping_building){
+        return customerRepo.getCustomerIdByPersonalData(first_name, last_name, email, tel_num, shipping_city, shipping_street, shipping_building);
+    }
+
+    public void setOrderAsCompleted(String order_id){
+        orderRepo.setOrderAsCompleted(order_id);
+    }
+
+    public Float getPriceById(Long id){
+        return productRepo.getPriceById(id);
+    }
+
+    public void saveCustomer(Customer customer) {
+        customerRepo.save(customer);
+    }
+
+    public void saveOrder(OrderEntity order) {
+        orderRepo.save(order);
+    }
+
+    public Customer findCustomerById(Long id) {
+        return customerRepo.findCustomerById(id);
+    }
+    public Product findProductById(Long id) {
+        return productRepo.findProductById(id);
+    }
 }

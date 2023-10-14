@@ -2,6 +2,8 @@ package com.example.webprojekt.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "product")
 public class Product {
@@ -93,4 +95,5 @@ public class Product {
     public void setDCmotor(com.example.webprojekt.entities.DCmotor DCmotor) {
         this.DCmotor = DCmotor;
     }
+
 }

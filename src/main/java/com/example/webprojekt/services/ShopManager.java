@@ -96,4 +96,20 @@ public class ShopManager {
     public DCmotor findDCmotorById(Long id){
         return dcmotorRepo.findDCmotorById(id);
     }
+
+    public Iterable<OrderEntity> getAllOrder(){
+        return orderRepo.findAll();
+    }
+
+    public Iterable<Customer> getAllCustomer(){
+        return customerRepo.findAll();
+    }
+
+    public Iterable<OrderEntity> getOrdersByCustomerId(Long id){
+        return orderRepo.getOrdersByCustomerId(id);
+    }
+
+    public Iterable<OrderEntity> getNotCompletedOrdersByCustomerId(Long id){
+        return orderRepo.getNotCompletedOrdersByCustomerId(id);
+    }
 }

@@ -16,4 +16,10 @@ public interface OrderEntityRepository extends JpaRepository<OrderEntity, Long> 
     @Query(value="UPDATE OrderEntity oe SET oe.completed = true WHERE oe.id = ?1")
     void setOrderAsCompleted(String order_id);
     List<OrderEntity> findAll();
+
+    @Query(value="SELECT oe FROM OrderEntity oe WHERE oe.id = ?1")
+    List<OrderEntity> getOrdersByCustomerId(Long id);
+
+    @Query(value="SELECT oe FROM OrderEntity oe WHERE (oe.id = ?1 AND oe.completed = false)")
+    List<OrderEntity> getNotCompletedOrdersByCustomerId(Long id);
 }

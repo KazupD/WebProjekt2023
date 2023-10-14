@@ -5,6 +5,7 @@ const adminpage = document.getElementById("adminpage");
 const backtomain_button = document.getElementById("backtomain");
 const login_button = document.getElementById("login");
 const logout_button = document.getElementById("logout");
+const show_orders_button = document.getElementById("show_orders");
 
 const name_input = document.getElementById("adminname");
 const password_input = document.getElementById("adminpwd");
@@ -42,6 +43,14 @@ logout_button.onclick = function ()
     location.assign('/');
 };
 
+show_orders_button.onclick = function (){
+    if(sessionStorage.getItem("admintoken") !== ""){
+        get_all_orders();
+        mark_as_completed(1);
+        mark_as_completed(2);
+        get_all_orders();
+    }
+}
 
 
 async function send_credentials(name, password){
@@ -67,4 +76,26 @@ async function send_credentials(name, password){
             }
         })
         .catch(err => console.log(err))
+}
+
+async function get_all_orders(){
+    await fetch('/getallorders', {
+        method: 'POST',
+        body: JSON.stringify(
+            {}
+        )
+    }).then(response => response.text())
+        .then(response => console.log(response))
+}
+
+async function mark_as_completed(id){
+    await fetch('/markascompleted', {
+        method: 'POST',
+        body: JSON.stringify(
+            {
+                customer_id: Number(id)
+            }
+        )
+    }).then(response => response.text())
+        .then(response => console.log(response))
 }

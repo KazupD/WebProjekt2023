@@ -70,8 +70,8 @@ function addProduct(product){
     card.className = 'product';
 
     card.innerHTML = `
-        <img src="https://picsum.photos/640/360?random=bf1" class="product_image" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}')" alt="Motor">
-        <h4 class="product_name" id="product_name${product.id}" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}')"></h4>
+        <img src="../images/product_imgs/${product.image}.png" class="product_image" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}','${product.image}')" alt="Motor">
+        <h4 class="product_name" id="product_name${product.id}" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}','${product.image}')"></h4>
         <h5 class="product_text" id="product_brand${product.id}"></h5>
         <h5 class="product_text" id="product_type${product.id}"></h5>
         <h5 class="product_text" id="product_power${product.id}"></h5>
@@ -102,14 +102,14 @@ function removeAllProducts() {
     }
 }
 
-function showProductDetails(id,name,brand,type,power,price){ // Need lost of arguments because it's called from HTML
+function showProductDetails(id,name,brand,type,power,price, image){ // Need lost of arguments because it's called from HTML
     info_modal.style.display = "block";
 
     let detailsPromise = get_motor_details(id, type);
     let details;
 
     info_modal_data.innerHTML = `
-        <img src="https://picsum.photos/640/360?random=bf1" class="product_image" alt="Motor">
+        <img src="../images/product_imgs/${image}.png" class="product_image" alt="Motor">
         <h4 class="detail_name" id="detail_name${id}"></h4>
         <h5 class="detail_text" id="detail_brand${id}"></h5>
         <h5 class="detail_text" id="detail_type${id}"></h5>

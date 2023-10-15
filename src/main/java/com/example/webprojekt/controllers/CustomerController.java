@@ -10,6 +10,8 @@ import org.springframework.jdbc.support.CustomSQLErrorCodesTranslation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 import static java.lang.Float.parseFloat;
 
 @Controller
@@ -122,9 +124,9 @@ public class CustomerController {
         String motor_type = jsonobj.getString("motor_type");
         Long motor_id = jsonobj.getLong("motor_id");
         JSONObject product_entity = new JSONObject();
-        if(motor_type.equals("AC")) {
-            ACmotor ac_motor = shopManager.findACmotorById(motor_id);
 
+        if (motor_type.equals("AC")) {
+            ACmotor ac_motor = shopManager.findACmotorById(motor_id);
             product_entity.put("cosine_phi", ac_motor.getCosine_phi());
             product_entity.put("nominal_current", ac_motor.getNominal_current());
             product_entity.put("nominal_rpm", ac_motor.getNominal_rpm());
@@ -133,9 +135,9 @@ public class CustomerController {
             product_entity.put("phase_number", ac_motor.getPhase_number());
             product_entity.put("pole_pairs", ac_motor.getPole_pairs());
         }
-        if(motor_type.equals("DC")) {
-            DCmotor dc_motor = shopManager.findDCmotorById(motor_id);
 
+        if (motor_type.equals("DC")) {
+            DCmotor dc_motor = shopManager.findDCmotorById(motor_id);
             product_entity.put("nominal_rpm", dc_motor.getNominal_rpm());
             product_entity.put("nominal_voltage", dc_motor.getNominal_voltage());
             product_entity.put("power_factor", dc_motor.getPower_factor());

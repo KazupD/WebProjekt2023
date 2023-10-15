@@ -15,7 +15,7 @@
             <img src="images/engine-electricity-motor.svg" alt="Motor icon">
             <div class="titletext">
                 <h1>WebMotor - The motor webshop</h1>
-                <p>...Low RPM motors don't exists - only low voltage...</p>
+                <p>...Low RPM motors don't exist - only low voltage...</p>
             </div>
         </header>
         <nav class="nav">
@@ -50,8 +50,7 @@
                         </select>
                     </div>
                     <div class="filter_content" id="price_select">
-                        <label>Price: </label>
-                        <label for="minprice">MIN</label>
+                        <label for="minprice">Price: MIN</label>
                         <input class="number_input" id="minprice" type="number" value="0" min="1" max="1000000"/>
                         <label for="maxprice">MAX</label>
                         <input class="number_input" id="maxprice" type="number" value="1000" min="1" max="1000000"/>
@@ -60,6 +59,13 @@
                 <button class="filter_button" id="remove_filters">Remove Filters</button>
                 <button class="filter_button" id="apply_filters">Apply Filters</button>
             </section>
+
+            <div id="infoModal" class="modal">
+                <div id="infoModalContent" class="modal_content">
+                    <span id="modalCloseBtn" class="close_modal">&times;</span>
+                    <div id="infoModalData"></div>
+                </div>
+            </div>
 
             <section class="product_container" id="product_container">
 
@@ -71,6 +77,6 @@
         </footer>
     </div>
 
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>

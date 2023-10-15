@@ -2,6 +2,8 @@ const cart_table = document.getElementById("cart_table");
 
 const total_price_head = document.getElementById("total_price");
 
+const data_entry_form = document.getElementById("data_entry");
+
 const clear_cart_button = document.getElementById("clear_cart");
 const finish_shopping_button = document.getElementById("finish_shopping");
 const submit_order_button = document.getElementById("submit_order");
@@ -24,17 +26,24 @@ window.onload = async function (){
 
 clear_cart_button.onclick = function (){
     sessionStorage.setItem("cart", JSON.stringify([]));
+    data_entry_form.classList.replace("data_entry", "hidden");
     removeAllRow();
     refreshCartTable();
 }
 
 finish_shopping_button.onclick = function (){
-
+    items_in_cart = JSON.parse(sessionStorage.getItem("cart"));
+    if(items_in_cart === null || items_in_cart.length === 0){
+        alert("Your cart is empty!");
+    } else {
+        data_entry_form.classList.replace("hidden", "data_entry");
+    }
 }
 
 submit_order_button.onclick = function (){
     submit_order();
 }
+
 
 function removeAllRow() {
     while (cart_table.firstChild) {

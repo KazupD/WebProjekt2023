@@ -62,6 +62,7 @@ public class AdminController {
             JSONObject customer_details_and_orders_object = new JSONObject();
 
             JSONObject customer_details_object = new JSONObject();
+            customer_details_object.put("id",c.getId());
             customer_details_object.put("first_name",c.getFirst_name());
             customer_details_object.put("last_name",c.getLast_name());
             customer_details_object.put("email",c.getEmail());
@@ -76,17 +77,18 @@ public class AdminController {
             Iterable<OrderEntity> c_order_list = shopManager.getNotCompletedOrdersByCustomerId(c_id);
 
             for(OrderEntity oe : c_order_list){
+
                 JSONObject ordered_product = new JSONObject();
 
-                Product p = shopManager.findProductById(oe.getId());
-
-                ordered_product.put("product_id", p.getId());
-                ordered_product.put("product_name", p.getName());
+                ordered_product.put("product_id", oe.getProduct().getId());
+                ordered_product.put("product_name", oe.getProduct().getName());
                 ordered_product.put("quantity", oe.getQuantity());
-                ordered_product.put("price", p.getPrice());
+                ordered_product.put("price", oe.getProduct().getPrice());
                 ordered_product.put("price_sum", oe.getTotal_price());
 
                 customer_orders_array.put(ordered_product);
+
+                System.out.println(ordered_product);
             }
 
             customer_details_and_orders_object.put("customer_orders", customer_orders_array);

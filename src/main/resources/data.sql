@@ -59,6 +59,6 @@ insert into customer (first_name, last_name, email, telephone, shipping_city, sh
 values ("Scooby", "Doo", "sd@sdmail.com", "9876543210", "Budapest 1111", "Irinyi József utca", "1-17");
 
 insert into order_table (customer_id, product_id, quantity, total_price)
-values (1, 4, 8, 15200);
+values (1, 4, 8, 7192);
 insert into order_table (customer_id, product_id, quantity, total_price)
-values (2, 3, 5, 8560);
+values (2, 3, 5, 6495);

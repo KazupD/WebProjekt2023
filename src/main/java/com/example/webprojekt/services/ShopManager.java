@@ -66,10 +66,6 @@ public class ShopManager {
         return customerRepo.getCustomerIdByPersonalData(first_name, last_name, email, tel_num, shipping_city, shipping_street, shipping_building);
     }
 
-    public void setOrderAsCompleted(String order_id){
-        orderRepo.setOrderAsCompleted(order_id);
-    }
-
     public Float getPriceById(Long id){
         return productRepo.getPriceById(id);
     }
@@ -105,11 +101,11 @@ public class ShopManager {
         return customerRepo.findAll();
     }
 
-    public Iterable<OrderEntity> getOrdersByCustomerId(Long id){
-        return orderRepo.getOrdersByCustomerId(id);
+    public Iterable<OrderEntity> getOrdersByCustomerId(Long customer_id){
+        return orderRepo.getOrdersByCustomerId(customer_id);
     }
 
-    public Iterable<OrderEntity> getNotCompletedOrdersByCustomerId(Long id){
-        return orderRepo.getNotCompletedOrdersByCustomerId(id);
+    public Iterable<OrderEntity> getNotCompletedOrdersByCustomerId(Long customer_id){
+        return orderRepo.getNotCompletedOrdersByCustomerId(customer_id);
     }
 }

@@ -75,6 +75,14 @@ body{
     text-transform: uppercase;
 }
 
+.data_entry{
+
+}
+
+.hidden{
+    display: none;
+}
+
 button {
     text-align: center;
     font-size: medium;
@@ -88,6 +96,7 @@ button {
     cursor: pointer;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
 }
+
 
 @media screen and (max-width: 500px)
 {

@@ -86,6 +86,41 @@ body{
     padding: 1%;
 }
 
+.loginform{
+
+}
+
+.adminpage{
+
+}
+
+.order_review{
+
+}
+
+.customer_detail_and_order_block{
+    padding: 20px 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.customer_detail_table{
+    border: 4px solid green;
+    background-color: lightgrey;
+    border-radius: 1rem;
+}
+
+.customer_orders_table{
+    border: 4px solid green;
+    background-color: lightgrey;
+    border-radius: 1rem;
+}
+
+.summary_block{
+
+}
+
 .footer{
     grid-column: 1 / 3;
     grid-row: 4;
@@ -105,7 +140,6 @@ button {
     background-color: transparent;
     border-radius: 1rem;
     cursor: pointer;
-    width: 50%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
 }
 

@@ -79,6 +79,35 @@ body{
 
 }
 
+.cart_section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cart_table_container {
+    overflow-x: auto;
+}
+
+.table_head th {
+    border-bottom: 4px solid green;
+}
+
+.cart_table {
+    border: 4px solid green;
+    border-radius: 1rem;
+    width: 100%;
+    min-width: 570px;
+}
+
+.cart_table {
+    text-align: center;
+}
+
+.cart_table tr:nth-child(even) {
+    background-color: #00800020;
+}
+
 .hidden{
     display: none;
 }

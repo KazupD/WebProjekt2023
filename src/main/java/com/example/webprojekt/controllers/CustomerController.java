@@ -41,12 +41,6 @@ public class CustomerController {
         return "cart";
     }
 
-    @GetMapping("/customer")
-    public String showCustomer() {
-
-        return "customer";
-    }
-
     @GetMapping("/about")
     public String showAbout() {
 

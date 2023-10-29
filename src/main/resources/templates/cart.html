@@ -23,7 +23,6 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/cart">Cart</a></li>
-            <li><a href="/customer">Account</a></li>
             <li class="admin"><a href="/admin">Admin</a></li>
         </ul>
     </nav>
@@ -41,7 +40,7 @@
         <section id="data_entry" class="hidden">
             <h3>Finish My Shopping</h3>
             <p>Please enter your personal details</p>
-            <div>
+            <form>
                 <label for="first_name">First Name</label>
                 <input class="personal_data" id="first_name" type="text" value="Johnny" required/><br>
                 <label for="last_name">Last Name</label>
@@ -50,15 +49,15 @@
                 <input class="personal_data" id="email" type="text" value="jb@jbmail.com" required/><br>
                 <label for="tel_num">Telephone</label>
                 <input class="personal_data" id="tel_num" type="text" value="0123456789" min="0" required/>
-            </div>
-            <div>
+            </form>
+            <form>
                 <label for="shipping_city">Shipping Address (City)</label>
                 <input class="shipping_data" id="shipping_city" type="text" value="Budapest 1111" required/><br>
                 <label for="shipping_street">Shipping Address (Street)</label>
                 <input class="shipping_data" id="shipping_street" type="text" value="Irinyi József utca" required/><br>
                 <label for="shipping_building">Shipping Address (Building)</label>
                 <input class="shipping_data" id="shipping_building" type="text" value="1-17" required/>
-            </div>
+            </form>
             <div>
                 <p>I accept terms:</p>
                 <input type="radio" id="accept_radio" name="term_accepting" value="yes">

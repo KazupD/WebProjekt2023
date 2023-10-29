@@ -78,7 +78,7 @@ function addProduct(product){
         <h4 class="product_price" id="product_price${product.id}"></h4>
         <div>
             <label for="quantity${product.id}">Quantity</label>
-            <input class="number_input" type="number" id="quantity${product.id}" value="1" min="1" max="${MAXPOWER}"/>
+            <input class="number_input" type="number" id="quantity${product.id}" value="1" min="1" max="10000"/>
             <button class="to_cart_button" id="to_cart_button${product.id}" onClick="addToCart('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}')">Add to cart</button>
         </div>
     `;
@@ -165,10 +165,17 @@ window.onclick = function (event) {
 }
 
 function addToCart(id, name, brand, type, power, price){
+
     id=Number(id);
     power=Number(power);
     price=Number(price);
     let quantity = document.getElementById(`quantity${id}`).value;
+
+    if(quantity < 1 || Number.isInteger(Number(quantity)) === false){
+        document.getElementById(`quantity${id}`).value = 1;
+        alert("Quantity must be positive integer")
+        return;
+    }
 
     let items_in_cart = JSON.parse(sessionStorage.getItem("cart"));
     if(items_in_cart === null){sessionStorage.setItem("cart", JSON.stringify([]));}

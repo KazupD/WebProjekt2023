@@ -164,6 +164,12 @@ button {
     border-radius: 1rem;
     cursor: pointer;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: green;
+    color: white;
 }
 
 img {
@@ -259,9 +265,7 @@ input {
     .header p{
         display: none;
     }
-}
 
-@media screen and (max-width: 250px) {
     .product_container {
         grid-template-columns: 1fr;
     }

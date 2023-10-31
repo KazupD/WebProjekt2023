@@ -41,24 +41,24 @@
 
         <section id="data_entry" class="hidden">
             <h3>Finish My Shopping</h3>
-            <p>Please enter your personal details</p>
-            <form>
-                <label for="first_name">First Name</label>
-                <input class="personal_data" id="first_name" type="text" value="Johnny" required/><br>
-                <label for="last_name">Last Name</label>
-                <input class="personal_data" id="last_name" type="text" value="Bravo" required/><br>
-                <label for="email">Email</label>
-                <input class="personal_data" id="email" type="text" value="jb@jbmail.com" required/><br>
-                <label for="tel_num">Telephone</label>
-                <input class="personal_data" id="tel_num" type="text" value="0123456789" min="0" required/>
+            <p>Please enter your personal details:</p>
+            <form class="data_entry_form">
+                <label class="data_entry_item" for="first_name">First Name</label>
+                <input class="data_entry_item" id="first_name" type="text" value="Johnny" required/><br>
+                <label class="data_entry_item" for="last_name">Last Name</label>
+                <input class="data_entry_item" id="last_name" type="text" value="Bravo" required/><br>
+                <label class="data_entry_item" for="email">Email</label>
+                <input class="data_entry_item" id="email" type="text" value="jb@jbmail.com" required/><br>
+                <label class="data_entry_item" for="tel_num">Telephone</label>
+                <input class="data_entry_item" id="tel_num" type="text" value="0123456789" min="0" required/>
             </form>
-            <form>
-                <label for="shipping_city">Shipping Address (City)</label>
-                <input class="shipping_data" id="shipping_city" type="text" value="Budapest 1111" required/><br>
-                <label for="shipping_street">Shipping Address (Street)</label>
-                <input class="shipping_data" id="shipping_street" type="text" value="Irinyi József utca" required/><br>
-                <label for="shipping_building">Shipping Address (Building)</label>
-                <input class="shipping_data" id="shipping_building" type="text" value="1-17" required/>
+            <form class="data_entry_form">
+                <label class="data_entry_item" for="shipping_city">Shipping Address (City)</label>
+                <input class="data_entry_item" id="shipping_city" type="text" value="Budapest 1111" required/><br>
+                <label class="data_entry_item" for="shipping_street">Shipping Address (Street)</label>
+                <input class="data_entry_item" id="shipping_street" type="text" value="Irinyi József utca" required/><br>
+                <label class="data_entry_item" for="shipping_building">Shipping Address (Building)</label>
+                <input class="data_entry_item" id="shipping_building" type="text" value="1-17" required/>
             </form>
             <div>
                 <p>I accept terms:</p>
@@ -67,7 +67,7 @@
                 <input type="radio" id="decline_radio" name="term_accepting" value="no" checked>
                 <label for="decline_radio">NO</label>
             </div>
-            <button id = "submit_order">Submit Order</button>
+            <button class="submit_button" id = "submit_order">Submit Order</button>
         </section>
     </main>
     <footer class="footer">

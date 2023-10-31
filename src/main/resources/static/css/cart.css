@@ -76,7 +76,15 @@ body{
 }
 
 .data_entry{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.cart_heading {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cart_section {
@@ -87,6 +95,8 @@ body{
 
 .cart_table_container {
     overflow-x: auto;
+    border: 4px solid green;
+    border-radius: 1rem;
 }
 
 .table_head th {
@@ -94,18 +104,27 @@ body{
 }
 
 .cart_table {
-    border: 4px solid green;
-    border-radius: 1rem;
+    border-collapse: collapse;
     width: 100%;
     min-width: 570px;
-}
-
-.cart_table {
     text-align: center;
 }
 
 .cart_table tr:nth-child(even) {
     background-color: #00800020;
+}
+
+.data_entry_form {
+    margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: 20em 20em 1em;
+    row-gap: 5px;
+}
+
+.submit_button {
+    margin-top: 20px;
+    font-size: large;
+    border: 6px solid green;
 }
 
 .hidden{
@@ -124,8 +143,13 @@ button {
     border-radius: 1rem;
     cursor: pointer;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
 }
 
+button:hover {
+    background-color: green;
+    color: white;
+}
 
 .main {
     grid-column: 1 / 3;
@@ -146,6 +170,12 @@ button {
     font-weight: bold;
 }
 
+@media screen and (max-width: 700px)
+{
+    .data_entry_form {
+        grid-template-columns: 50% 50% 1%;
+    }
+}
 
 @media screen and (max-width: 500px)
 {
@@ -171,6 +201,10 @@ button {
         padding-right: 2.5%;
         padding-top: 5px;
         padding-bottom: 5px;
+    }
+
+    .data_entry_form {
+        grid-template-columns: auto;
     }
 }
 

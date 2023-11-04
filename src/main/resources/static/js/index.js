@@ -66,30 +66,28 @@ remove_filters_button.onclick = function ()
 
 function addProduct(product){
     const card = document.createElement('div');
-    card.id = product.id;
-    card.className = 'product';
-
     card.innerHTML = `
         <img src="../images/product_imgs/${product.image}.png" class="product_image" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}','${product.image}')" alt="Motor">
         <div class="product_text_container">
+            <h4 class="product_name" id="product_name${product.id}" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}','${product.image}')"></h4>
+            <h5 class="product_text" id="product_brand${product.id}"></h5>
+            <h5 class="product_text" id="product_type${product.id}"></h5>
+            <h5 class="product_text" id="product_power${product.id}"></h5>
+            <h4 class="product_price" id="product_price${product.id}"></h4>
+            <div class="card_input_div">
+                <div class="quantity_div">
+                    <label for="quantity${product.id}">Quantity:</label><br>
+                    <input class="number_input" type="number" id="quantity${product.id}" value="1" min="1" max="10000"/>
+                </div>
+                <div class="to_cart_div">
+                    <button class="to_cart_button" id="to_cart_button${product.id}" onClick="addToCart('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}')">To Cart</button>
+                </div>
             <div>
-                <h4 class="product_name" id="product_name${product.id}" onclick="showProductDetails('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}','${product.image}')"></h4>
-                <h5 class="product_text" id="product_brand${product.id}"></h5>
-                <h5 class="product_text" id="product_type${product.id}"></h5>
-                <h5 class="product_text" id="product_power${product.id}"></h5>
-                <h4 class="product_price" id="product_price${product.id}"></h4>
-                <div class="card_input_div">
-                    <div class="quantity_div">
-                        <label for="quantity${product.id}">Quantity:</label><br>
-                        <input class="number_input" type="number" id="quantity${product.id}" value="1" min="1" max="10000"/>
-                    </div>
-                    <div class="to_cart_div">
-                        <button class="to_cart_button" id="to_cart_button${product.id}" onClick="addToCart('${product.id}','${product.name}','${product.brand}','${product.type}','${product.power}','${product.price}')">To Cart</button>
-                    </div>
-                <div>
-            </div>
         </div>
     `;
+    card.id = product.id;
+
+    card.className = 'product';
 
     card.querySelector(`#product_name${product.id}`).innerText = product.name;
     card.querySelector(`#product_brand${product.id}`).innerText = "Manufacturer: " + product.brand;

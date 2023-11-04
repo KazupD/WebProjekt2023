@@ -289,6 +289,12 @@ input {
     border: 1px solid black;
     border-radius: 8px;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 1%;
 }
 
 .card_input_div{
@@ -317,10 +323,8 @@ input {
 }
 
 .product_text_container{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 1%;
+    margin-left:auto;
+    margin-right: auto;
 }
 
 .product .product_name {

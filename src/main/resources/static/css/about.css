@@ -115,6 +115,22 @@ button {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
 }
 
+.contact_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+    .contact_container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header p{
+        display: none;
+    }
+}
+
 @media screen and (max-width: 500px)
 {
     .nav ul
@@ -130,8 +146,7 @@ button {
     }
 
     .header p{
-
-        vertical-align: top;
+        display: none;
     }
 
     .header{
@@ -144,6 +159,9 @@ button {
 
 @media screen and (max-width: 400px)
 {
+    .contact_container {
+        grid-template-columns: 1fr;
+    }
 
     .header p{
         display: none;

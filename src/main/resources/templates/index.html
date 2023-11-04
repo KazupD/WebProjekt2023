@@ -39,7 +39,7 @@
                         <label for="any">Any</label>
                     </div>
                     <div class="filter_content" id="power_select">
-                        <label for="power">Power</label>
+                        <label for="power">Power:</label>
                         <select name="power" id="power">
                             <option value="all">All</option>
                             <option value="low">"0-100 [W]"</option>
@@ -48,10 +48,12 @@
                             <option value="veryhigh">5000- [W]</option>
                         </select>
                     </div>
-                    <div class="filter_content" id="price_select">
-                        <label for="minprice">Price: MIN</label>
+                    <div class="filter_content" id="min_price_select">
+                        <label for="minprice">Minimum<br>price:</label>
                         <input class="number_input" id="minprice" type="number" value="0" min="1" max="1000000"/>
-                        <label for="maxprice">MAX</label>
+                    </div>
+                    <div class="filter_content" id="max_price_select">
+                        <label for="maxprice">Maximum<br>price:</label>
                         <input class="number_input" id="maxprice" type="number" value="1000" min="1" max="1000000"/>
                     </div>
                 </div>

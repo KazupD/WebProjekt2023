@@ -27,8 +27,10 @@
         </ul>
     </nav>
     <main class="main">
-        <h3 class="cart_heading">My Cart</h3>
-        <h3 class="cart_heading" id="total_price">Total:</h3>
+        <div class="mycart_heading">
+            <h2 class="cart_heading" id="mycart">My Cart</h2>
+            <h2 class="cart_heading" id="total_price">Total:</h2>
+        </div>
         <section class="cart_section" id="cart_section">
             <div class="cart_table_container">
                 <table class="cart_table" id="cart_table">
@@ -40,7 +42,7 @@
         </section>
 
         <section id="data_entry" class="hidden">
-            <h3>Finish My Shopping</h3>
+            <h2>Finish My Shopping</h2>
             <p>Please enter your personal details:</p>
             <form class="data_entry_form">
                 <label class="data_entry_item" for="first_name">First Name</label>
@@ -60,14 +62,18 @@
                 <label class="data_entry_item" for="shipping_building">Shipping Address (Building)</label>
                 <input class="data_entry_item" id="shipping_building" type="text" value="1-17" required/>
             </form>
-            <div>
-                <p>I accept terms:</p>
-                <input type="radio" id="accept_radio" name="term_accepting" value="yes">
-                <label for="accept_radio">YES</label>
-                <input type="radio" id="decline_radio" name="term_accepting" value="no" checked>
-                <label for="decline_radio">NO</label>
+            <div class="submit_order_form">
+                <div class="accept_terms_div">
+                    <p>I accept terms:</p>
+                    <input type="radio" id="accept_radio" name="term_accepting" value="yes">
+                    <label for="accept_radio">YES</label>
+                    <input type="radio" id="decline_radio" name="term_accepting" value="no" checked>
+                    <label for="decline_radio">NO</label>
+                <div>
+                <div class="submit_button_div">
+                    <button class="submit_button" id = "submit_button">Submit Order</button>
+                </div>
             </div>
-            <button class="submit_button" id = "submit_order">Submit Order</button>
         </section>
     </main>
     <footer class="footer">

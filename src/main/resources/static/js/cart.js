@@ -6,7 +6,7 @@ const data_entry_form = document.getElementById("data_entry");
 
 const clear_cart_button = document.getElementById("clear_cart");
 const finish_shopping_button = document.getElementById("finish_shopping");
-const submit_order_button = document.getElementById("submit_order");
+const submit_order_button = document.getElementById("submit_button");
 
 const first_name_input = document.getElementById("first_name");
 const last_name_input = document.getElementById("last_name");
@@ -133,10 +133,10 @@ function refreshCartTable(){
             <td class="cart_item_common" id="cart_item_power${id}"></td>
             <td class="cart_item_important" id="cart_item_price${id}"></td>
             <td class="cart_item_handle" id="cart_item_plus${id}">
-                <button class="handle_button" id="plus_button${id}" onclick="plusItem(${id})">+1</button>
+                <button class="handle_button" id="plus_button${id}" onclick="plusItem(${id})">+</button>
             </td>
             <td class="cart_item_handle" id="cart_item_minus${id}">
-                <button class="handle_button" id="minus_button${id}" onclick="minusItem(${id})">-1</button>
+                <button class="handle_button" id="minus_button${id}" onclick="minusItem(${id})">-</button>
             </td>
             <td class="cart_item_handle" id="cart_item_drop${id}">
                 <button class="handle_button" id="drop_button${id}" onclick="dropItem(${id})">Drop</button>

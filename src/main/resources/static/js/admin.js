@@ -14,7 +14,7 @@ const order_review_section = document.getElementById("order_review");
 
 window.onload = async function () {
 
-    if(sessionStorage.getItem("admintoken") !== ""){
+    if(sessionStorage.getItem("admintoken") !== "" && sessionStorage.hasOwnProperty('admintoken')){
         loginform.classList.replace("loginform", "hidden");
         adminpage.classList.replace("hidden", "adminpage");
     } else {
@@ -35,18 +35,19 @@ login_button.onclick = function ()
     aname_input = name_input.value;
     apwd_input = hash('SHA-256', password_input.value);
     
-    send_credentials(name=aname_input, password=apwd_input)
+    send_credentials(name=aname_input, password=apwd_input);
 
 };
 
 logout_button.onclick = function ()
 {
     sessionStorage.setItem("admintoken", "");
+    sessionStorage.removeItem("admintoken");
     location.assign('/');
 };
 
 show_orders_button.onclick = function (){
-    if(sessionStorage.getItem("admintoken") !== ""){
+    if(sessionStorage.getItem("admintoken") !== "" && sessionStorage.hasOwnProperty('admintoken')){
         refreshReviewTable();
     }
 }
@@ -188,7 +189,7 @@ async function send_credentials(name, password){
     }).then(response => response.text())
         .then((response) => {
             sessionStorage.setItem("admintoken", response);
-            if(sessionStorage.getItem("admintoken") !== ""){
+            if(sessionStorage.getItem("admintoken") !== "" && sessionStorage.hasOwnProperty('admintoken')){
                 loginform.classList.replace("loginform", "hidden");
                 adminpage.classList.replace("hidden", "adminpage");
                 refreshReviewTable();
@@ -196,6 +197,7 @@ async function send_credentials(name, password){
             else{
                 loginform.classList.replace("hidden", "loginform");
                 adminpage.classList.replace("adminpage", "hidden");
+                sessionStorage.removeItem("admintoken");
                 alert("Invalid admin credentials!")
             }
         })

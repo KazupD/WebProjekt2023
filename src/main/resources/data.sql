@@ -1,5 +1,5 @@
-insert into admin (adminname, adminpwd) values ("username", "password");
-insert into admintoken (token) values ("secretkey");
+insert into admin (adminname, adminpwd) values ("username", "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
+insert into admintoken (token) values ("7sr4949srb541srb26526564sfb4wrb52bsrfbsdfbdgbfd8582adbfdagb5484d");
 
 insert into product (id, name, image_name, brand, power, price, type)
 values (1, "StronK X1", "motor_img1", "ThunderTorque", 5000, 2099, "AC");
@@ -28,21 +28,21 @@ values (12, "Electra XL", "motor_img11", "VoltMach", 500, 199, "DC");
 
 
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (1, 1, 0.9, 18.0, 1450, 400, 3.33, 3, 1);
+values (1, 1, 0.9, 18.0, 1450, 400, 3.33, 3, 2);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (2, 2, 0.85, 13.0, 1450, 400, 3.33, 3, 1);
+values (2, 2, 0.85, 13.0, 1450, 400, 3.33, 3, 2);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (3, 3, 0.92, 10.0, 1450, 400, 3.33, 3, 1);
+values (3, 3, 0.92, 10.0, 1450, 400, 3.33, 3, 2);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (4, 4, 0.88, 17.0, 725, 400, 3.33, 3, 2);
+values (4, 4, 0.88, 17.0, 725, 400, 3.33, 3, 3);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (5, 5, 0.92, 13.0, 725, 400, 3.33, 3, 2);
+values (5, 5, 0.92, 13.0, 725, 400, 3.33, 3, 3);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (6, 6, 0.78, 6.0, 725, 400, 3.33, 3, 2);
+values (6, 6, 0.78, 6.0, 725, 400, 3.33, 3, 3);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (7, 7, 0.87, 21.0, 350, 400, 6.67, 3, 3);
+values (7, 7, 0.87, 21.0, 350, 400, 6.67, 3, 4);
 insert into acmotor (product_id, id, cosine_phi, nominal_current, nominal_rpm, nominal_voltage, slip, phase_number, pole_pairs)
-values (8, 8, 0.91, 30.0, 350, 400, 6.67, 3, 3);
+values (8, 8, 0.91, 30.0, 350, 400, 6.67, 3, 4);
 
 insert into dcmotor (product_id, id, nominal_rpm, nominal_voltage, power_factor, stall_current, steady_state_current, stall_torque, steady_state_torque, commutator_segments)
 values (9, 9, 1500, 12.0, 0.7, 15.0, 2.0, 10.0, 0.5, 20);

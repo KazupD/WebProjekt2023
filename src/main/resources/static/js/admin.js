@@ -34,9 +34,7 @@ login_button.onclick = function ()
 {
     aname_input = name_input.value;
     apwd_input = hash('SHA-256', password_input.value);
-
-    console.log(hash('SHA-256', password_input.value))
-
+    
     send_credentials(name=aname_input, password=apwd_input)
 
 };

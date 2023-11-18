@@ -33,9 +33,11 @@ backtomain_button.onclick = function ()
 login_button.onclick = function ()
 {
     aname_input = name_input.value;
-    apwd_input = password_input.value;
+    apwd_input = hash('SHA-256', password_input.value);
 
-    send_credentials(name=aname_input, password=aname_input)
+    console.log(hash('SHA-256', password_input.value))
+
+    send_credentials(name=aname_input, password=apwd_input)
 
 };
 
@@ -49,6 +51,12 @@ show_orders_button.onclick = function (){
     if(sessionStorage.getItem("admintoken") !== ""){
         refreshReviewTable();
     }
+}
+
+function hash(algorithm, message) {
+    const shaObj = new jsSHA(algorithm, 'TEXT');
+    shaObj.update(message);
+    return shaObj.getHash('HEX');
 }
 
 function showNextOrder(order_with_customer){
